@@ -3,7 +3,7 @@
         <div>
             <logo />
             <h1 class="Title">Nuxt-Routes</h1>
-            <div>Hi Mark</div>
+            <div>Hey Wazzup!</div>
         </div>
 
     </div>
