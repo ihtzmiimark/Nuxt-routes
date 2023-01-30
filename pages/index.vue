@@ -1,37 +1,39 @@
 <template>
   <div class="container">
-    <div>
+    <div class="">
       <logo />
-      <div style="margin: 0 auto; display:block; width: fit-content;">
-      <div style="text-align: center;">
-        <h1 class="Title">HOME</h1>
-      <NuxtLink to="/about">About</NuxtLink>
-      <NuxtLink to="/">Home</NuxtLink>
-      </div>
-      <ul style="margin: 0 auto; display:flex; width: 100%; list-style-type: none; margin-top: 10px;">
-        <li style="margin-left: 30px;" v-for="planet in planets" :key="planet.slug">
-          <NuxtLink :to="planet.slug">
-            {{ planet.title }}
-          </NuxtLink>
-        </li>
-      </ul>
+      <div style="margin: 0 auto; display:flexbox; width: fit-content;">
+        <div style="text-align: center;">
+          <h2 class="Title" style="color:skyblue">River's View </h2>
+          <NuxtLink to="/about">About</NuxtLink>
+          <NuxtLink to="/">Home</NuxtLink>
+        </div>
+       <ul
+          style="size: 30px; font-size:larger; margin: 0 auto; display:flex; width: 100%; list-style-type: none; margin-top: 30px; margin-bottom: 30px;">
+          <li style="margin-left: 25px;" v-for="river in rivers" :key="river.slug">
+            <NuxtLink :to="river.slug">
+              {{ river.title }}
+            </NuxtLink>
+          </li>
+        </ul>
+        </div>
     </div>
   </div>
-  </div>
+  
 
 </template>
 
 <script>
 export default {
   async fetch() {
-    this.planets = await fetch('https://api.nuxtjs.dev/planets').then (res => res.json())
+    this.rivers = await fetch('https://api.nuxtjs.dev/rivers').then(res => res.json())
   },
   data() {
     return {
-      planets: [],
+      rivers: [],
     }
   },
-  
+
 }
 
 

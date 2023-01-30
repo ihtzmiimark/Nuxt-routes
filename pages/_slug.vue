@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <img :src="planet.image" alt="" />
-      <h1 class="title">{{ planet.title }}</h1>
-        <h1>{{ planet.description }}</h1>
-        <h1>{{ planet.distanceFromSun }}</h1>
-      <PlanetsList />
+      <img :src="river.image" alt="" />
+      <h1 class="title">{{ river.title }}</h1>
+      <h1>{{ river.description }}</h1>
+      <h1>{{ river.length }}</h1>
+      <RiversList />
     </div>
   </div>
 </template>
@@ -15,12 +15,12 @@ export default {
   transition: 'bounce',
   head() {
     return {
-      title: this.planet.title,
+      title: this.river.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.planet.description,
+          content: this.river.description,
         },
       ],
       link: [
@@ -33,19 +33,19 @@ export default {
     }
   },
   async asyncData({ params }) {
-    const planet = await fetch(
-      `https://api.nuxtjs.dev/planets/${params.slug}`
+    const river = await fetch(
+      `https://api.nuxtjs.dev/rivers/${params.slug}`
     ).then((res) => {
       if (res.ok) {
         return res.json()
       }
       throw new Error(res.status)
     })
-    return { planet }
+    return { river }
 
   },
-  mounted(){
-      console.log(this.planet)
+  mounted() {
+    console.log(this.river)
   }
 }
 </script>
@@ -53,6 +53,7 @@ export default {
 h1 {
   font-family: Nunito, sans-serif;
 }
+
 img {
   height: 80px;
   width: auto;
